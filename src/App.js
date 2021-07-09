@@ -1,13 +1,20 @@
+import Header from './components/Header';
+import AnswerForm from './components/quiz/AnswerForm';
+import Hint from './components/quiz/Hint';
+import NextMovie from './components/quiz/NextMovie';
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-         lets go
-        </p>
-      </header>
+      <Header />
+
+      <AnswerForm />
+      <div>
+        <Hint />
+        <NextMovie />
+      </div>
     </div>
   );
 }
