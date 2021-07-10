@@ -1,7 +1,7 @@
 import React, { useState } from 'react'; 
 
 import Button from '../UI/Button';
-import { MOVIES } from '../movies/Movies';
+import  { MOVIES } from '../movies/Movies';
 import './answerform.style.css';
 
 const AnswerForm = () => {
@@ -23,13 +23,20 @@ const AnswerForm = () => {
         } else {
             setAnswerResult('Wrong');
         }
+
+        setUserAnswer('');
     };
 
     return (
         <React.Fragment>
             <p className='answerResult'>{answerResult}</p>
             <form onSubmit={submitHandler} className='answerBody'>
-                <input className='answerField' type='text' onChange={answerChangeHandler}></input>
+                <input 
+                    className='answerField' 
+                    type='text' 
+                    onChange={answerChangeHandler}
+                    value={userAnswer}
+                ></input>
                 <Button type='submit'>Check</Button>
             </form>
         </React.Fragment>
