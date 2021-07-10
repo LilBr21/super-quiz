@@ -1,0 +1,9 @@
+.buttoncheck {
+    width: 270px;
+  height: 50px;
+  margin-top: 10px;
+  background-color: #FFF73C;
+  font-family: Monofett;
+  font-size: 35px;
+  cursor: pointer;
+}

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import Button from '../UI/Button';
 import { MOVIES } from '../movies/Movies';
+import './answerform.style.css';
 
 const AnswerForm = () => {
     const [userAnswer, setUserAnswer] = useState('');
@@ -26,9 +27,9 @@ const AnswerForm = () => {
 
     return (
         <React.Fragment>
-            <p>{answerResult}</p>
-            <form onSubmit={submitHandler}>
-                <input type='text' onChange={answerChangeHandler}></input>
+            <p className='answerResult'>{answerResult}</p>
+            <form onSubmit={submitHandler} className='answerBody'>
+                <input className='answerField' type='text' onChange={answerChangeHandler}></input>
                 <Button type='submit'>Check</Button>
             </form>
         </React.Fragment>
