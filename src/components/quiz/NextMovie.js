@@ -1,4 +1,4 @@
 
-const NextMovie = () => {};
+// const NextMovie = () => {};
 
-export default NextMovie;
+// export default NextMovie;
