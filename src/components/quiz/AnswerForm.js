@@ -1,12 +1,14 @@
 import React, { useState } from 'react'; 
 
 import Button from '../UI/Button';
-import  { MOVIES } from '../movies/Movies';
+
 import './answerform.style.css';
 
-const AnswerForm = () => {
+const AnswerForm = (props) => {
     const [userAnswer, setUserAnswer] = useState('');
     const [answerResult, setAnswerResult] = useState('');
+    const [currentMovie, setCurrentMovie] = useState(0);
+    const [currentAnswer, setCurrentAnswer] = useState(0);
 
     const answerChangeHandler = (event) => {
         setUserAnswer(event.target.value);
@@ -16,7 +18,7 @@ const AnswerForm = () => {
         event.preventDefault();
         console.log(userAnswer);
 
-        const correctAnswer = MOVIES[0].answer;
+        let correctAnswer = props.answers[currentAnswer];
 
         if (userAnswer === correctAnswer) {
             setAnswerResult('Correct!');
@@ -24,20 +26,32 @@ const AnswerForm = () => {
             setAnswerResult('Wrong');
         }
 
-        setUserAnswer('');
     };
+
+    const changeMovieHandler = (event) => {
+        event.preventDefault();
+        setCurrentMovie(prev => (prev + 1) % 3);
+
+        setCurrentAnswer(prev => (prev + 1) % 3);
+
+        setUserAnswer('');
+        setAnswerResult('');
+    };
+        
 
     return (
         <React.Fragment>
-            <p className='answerResult'>{answerResult}</p>
-            <form onSubmit={submitHandler} className='answerBody'>
+            <p>{props.films[currentMovie]}</p>
+            <p className='answerResult' value={answerResult}>{answerResult}</p>
+            <form className='answerBody'>
                 <input 
                     className='answerField' 
                     type='text' 
                     onChange={answerChangeHandler}
                     value={userAnswer}
                 ></input>
-                <Button type='submit'>Check</Button>
+                <Button type='submit' onClick={submitHandler}>Check</Button>
+                <button onClick={changeMovieHandler}>Next</button>
             </form>
         </React.Fragment>
     )

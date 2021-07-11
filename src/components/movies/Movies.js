@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-//const movieId = Math.random().toString();
+import AnswerForm from '../quiz/AnswerForm';
 
 export const MOVIES = [
     {
@@ -25,26 +25,18 @@ export const MOVIES = [
 ];
 
 const pulpFiction = ['🍔', ' ', '💉', ' ', '🔫'];
-const titanic = ['💔', ' ', '🚢', ' ', '❄'];
+const titanic = ['💔', ' ', '🚢', ' ', '🌊', ' ', '🥶', ' ', '🚪'];
 const forrestGump = ['🍫', ' ', '💔', ' ', '🏃‍♂️', ' ', '🍤', ' ', '🇻🇳', ];
 
-let films = [pulpFiction, titanic, forrestGump]
 
 
 const MovieRiddle = () => {
+    let films = [pulpFiction, titanic, forrestGump];
+    let answers = ['pulp fiction', 'titanic', 'forrest gump'];
     
-    const [currentMovie, setCurrentMovie] = useState(0);
-
-    const changeMovieHandler = () => {
-        setCurrentMovie(prev => (prev + 1) % 3);
-        console.log(currentMovie);
-    };
-
-
     return (
         <div>
-            <p>{films[currentMovie]}</p>
-            <button onClick={changeMovieHandler}>Next</button>
+            <AnswerForm answers={answers} films={films}/>
         </div>
     )
 };

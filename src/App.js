@@ -1,5 +1,4 @@
 import Header from './components/Header';
-import AnswerForm from './components/quiz/AnswerForm';
 //import Hint from './components/quiz/Hint';
 
 import MovieRiddle from './components/movies/Movies';
@@ -12,7 +11,6 @@ function App() {
     <div className="App">
       <Header />
       <MovieRiddle />
-      <AnswerForm />
     </div>
   );
 }
