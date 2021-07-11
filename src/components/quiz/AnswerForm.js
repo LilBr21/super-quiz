@@ -37,11 +37,10 @@ const AnswerForm = (props) => {
         setUserAnswer('');
         setAnswerResult('');
     };
-        
 
     return (
         <React.Fragment>
-            <p>{props.films[currentMovie]}</p>
+            <p className='emojis'>{props.films[currentMovie]}</p>
             <p className='answerResult' value={answerResult}>{answerResult}</p>
             <form className='answerBody'>
                 <input 
@@ -51,7 +50,7 @@ const AnswerForm = (props) => {
                     value={userAnswer}
                 ></input>
                 <Button type='submit' onClick={submitHandler}>Check</Button>
-                <button onClick={changeMovieHandler}>Next</button>
+                <button className='nextButton' onClick={changeMovieHandler}>Next</button>
             </form>
         </React.Fragment>
     )

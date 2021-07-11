@@ -4,6 +4,10 @@
     align-items: center;
 }
 
+.emojis {
+    font-size: 30px;
+  }
+
 .answerField {
     width: 270px;
     height: 50px;
@@ -18,4 +22,16 @@
 
   .answerResult {
       color: #FFFFFF;
+      font-family: sans-serif;
+  }
+
+  .nextButton {
+    width: 133px;
+    height: 50px;
+    background: rgba(255, 247, 60, 0.3);
+    font-family: Monofett;
+    color: #FFFFFF;
+    font-size: 35px;
+    margin: 2px;
+    cursor: pointer;
   }
