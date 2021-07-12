@@ -1,4 +1,4 @@
 
-const Hint = () => {};
+// const Hint = () => {};
 
-export default Hint;
+// export default Hint;
