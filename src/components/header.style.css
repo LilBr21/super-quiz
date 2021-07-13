@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Monofett&display=swap');
 
 .header {
-    font-family: Monofett;
+  font-family: Monofett;
   font-weight: 400;
   color: #FFF73C;
   font-size: 45px;
   text-shadow: 0 5px 30px #FFF73C;
-  margin-top: 100px;
+  margin-top: 2,5rem;
+  margin-bottom: 5rem;
 }

@@ -1,10 +1,12 @@
 import React, { useState } from 'react'; 
 
 //import Button from '../UI/Button';
+import Header from '../Header';
 import Score from '../Score';
+import Hint from './Hint';
 
 import './answerform.style.css';
-import '../UI/button.style.css';
+// import '../UI/button.style.css';
 
 const AnswerForm = (props) => {
     const [userAnswer, setUserAnswer] = useState('');
@@ -31,7 +33,7 @@ const AnswerForm = (props) => {
             setScore(prev => prev + 1);
             setDisable(true);
         } else {
-            setAnswerResult('Wrong');
+            setAnswerResult('Try again');
         }
 
     };
@@ -50,9 +52,13 @@ const AnswerForm = (props) => {
     return (
         <React.Fragment>
             <Score score={score}/>
+            <Header />
             <p className='emojis'>{props.films[currentMovie]}</p>
-            <p className='answerResult' value={answerResult}>{answerResult}</p>
+            <div className='result-container'>
+                <p className='answerResult' value={answerResult}>{answerResult}</p>
+            </div>
             <form className='answerBody'>
+                <div className='container'>
                 <input 
                     className='answerField' 
                     type='text' 
@@ -60,7 +66,11 @@ const AnswerForm = (props) => {
                     value={userAnswer}
                 ></input>
                 <button className='buttoncheck' type='submit' onClick={submitHandler} disabled={disable}>Check</button>
-                <button className='nextButton' onClick={changeMovieHandler}>Next</button>
+                <div className='bottombuttons'>
+                    <button className='nextButton' onClick={changeMovieHandler}>Next</button>
+                    <Hint />
+                </div>
+                </div>
             </form>
         </React.Fragment>
     )

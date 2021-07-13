@@ -6,7 +6,7 @@ const Score = (props) => {
     let score = props.score;
 
     return (
-        <div>
+        <div className='score-container'>
             <p className='score'>Points: {score}</p>
         </div>
 
