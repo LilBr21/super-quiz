@@ -8,6 +8,12 @@
     position: relative;
 }
 
+.game-stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .container {
   display: grid; 
   grid-template-columns: 300px;
@@ -17,6 +23,7 @@
 
 .emojis {
     font-size: 30px;
+    margin-top: 5rem;
 }
 
 .result-container {
@@ -63,7 +70,7 @@
   grid-template-rows: 1fr;
 }
 
-.hint-btn {
+.hint-btn, .hint-btn:disabled:hover {
   grid-column: 1 / 2;
   grid-row: 1;
   width: 150px;
@@ -72,7 +79,7 @@
   color: #FFFFFF;
   font-size: 35px;
   cursor: pointer;
-} 
+}
 
 .nextButton {
   grid-column: 2 / 3;

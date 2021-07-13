@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 //import Button from '../UI/Button';
 import Header from '../Header';
 import Score from '../Score';
-import Hint from './Hint';
+import Hint from './Hints/Hint';
+import HintsLeft from './Hints/HintsLeft';
 
 import './answerform.style.css';
 // import '../UI/button.style.css';
@@ -15,6 +16,7 @@ const AnswerForm = (props) => {
     const [currentAnswer, setCurrentAnswer] = useState(0);
     const [score, setScore] = useState(0);
     const [disable, setDisable] = useState(false);
+    const [howManyHints, setHowManyHints] = useState(3)
 
     const answerChangeHandler = (event) => {
         setUserAnswer(event.target.value);
@@ -49,13 +51,27 @@ const AnswerForm = (props) => {
         setDisable(false);
     };
 
+    
+
+    const countHintsLeftHandler = (hintsLeft) => {
+        console.log(hintsLeft);
+        setHowManyHints(hintsLeft);
+    };
+
     return (
         <React.Fragment>
-            <Score score={score}/>
             <Header />
+            <div className='game-stats'>
+                <Score score={score}/>
+                <HintsLeft hintsleft={howManyHints}/>
+            </div>
             <p className='emojis'>{props.films[currentMovie]}</p>
             <div className='result-container'>
-                <p className='answerResult' value={answerResult}>{answerResult}</p>
+                <p 
+                    className='answerResult' 
+                    value={answerResult}>
+                    {answerResult}
+                </p>
             </div>
             <form className='answerBody'>
                 <div className='container'>
@@ -65,10 +81,23 @@ const AnswerForm = (props) => {
                     onChange={answerChangeHandler}
                     value={userAnswer}
                 ></input>
-                <button className='buttoncheck' type='submit' onClick={submitHandler} disabled={disable}>Check</button>
+                <button 
+                    className='buttoncheck' 
+                    type='submit' 
+                    onClick={submitHandler} 
+                    disabled={disable}>
+                    Check
+                </button>
                 <div className='bottombuttons'>
-                    <button className='nextButton' onClick={changeMovieHandler}>Next</button>
-                    <Hint />
+                    <button 
+                        className='nextButton' 
+                        onClick={changeMovieHandler}>
+                        Next
+                    </button>
+                    <Hint 
+                        hintnumber={currentMovie}  
+                        onCountHintsLeft={countHintsLeftHandler}
+                    />
                 </div>
                 </div>
             </form>

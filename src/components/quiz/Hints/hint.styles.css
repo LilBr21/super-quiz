@@ -18,6 +18,12 @@
     border-radius: 14px;
 }
 
+.hint-text {
+    width: 60%;
+    margin-left: 15px;
+    font-size: 17px;
+}
+
 .closing-btn {
     height: 30px;
     width: 30px;

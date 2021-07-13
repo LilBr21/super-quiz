@@ -1,12 +1,11 @@
-.score-container {
+.hints-left-container {
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
-    height: 50px;
     /* margin-top: 2rem; */
 }
 
-.score {
+.hints-left {
     color: white;
     font-family: sans-serif;
     font-size: 20px;
