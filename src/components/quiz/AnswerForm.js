@@ -51,12 +51,12 @@ const AnswerForm = (props) => {
         setDisable(false);
     };
 
-    
-
     const countHintsLeftHandler = (hintsLeft) => {
         console.log(hintsLeft);
         setHowManyHints(hintsLeft);
     };
+
+    
 
     return (
         <React.Fragment>

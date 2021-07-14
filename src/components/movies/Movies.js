@@ -60,10 +60,14 @@ const MovieRiddle = () => {
         'the wolf of wall street',
         'the curious case of benjamin button'
     ];
+
     
     return (
         <div>
-            <AnswerForm answers={answers} films={films}/>
+            <AnswerForm 
+                answers={answers} 
+                films={films} 
+            />
         </div>
     )
 };
