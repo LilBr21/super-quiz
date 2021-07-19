@@ -27,9 +27,8 @@ const AnswerForm = (props) => {
 
     const submitHandler = (event) => {
         event.preventDefault();
-        console.log(userAnswer);
 
-        if (userAnswer === correctAnswer) {
+        if (userAnswer.toLowerCase() === correctAnswer) {
             setAnswerResult('Correct!');
             setScore(prev => prev + 1);
             setDisable(true);
@@ -41,15 +40,15 @@ const AnswerForm = (props) => {
 
     const changeMovieHandler = (event) => {
         event.preventDefault();
-        setCurrentMovie(prev => (prev + 1) % 9);
+        setCurrentMovie(prev => (prev + 1) % 10);
 
-        setCurrentAnswer(prev => (prev + 1) % 9);
+        setCurrentAnswer(prev => (prev + 1) % 10);
 
         setUserAnswer('');
         setAnswerResult('');
         setDisable(false);
 
-        if (currentMovie === 8) {
+        if (currentMovie === 9) {
             setShowAnswerForm(false);
             setShowEndPage(true);
         }

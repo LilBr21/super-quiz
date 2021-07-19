@@ -11,6 +11,7 @@ const theSixthSense = ['👦', ' ', '👀', ' ', '👻'];
 const theKingsSpeech = ['🗣', ' ', '❌', ' ', '🎙', ' ', '👑'];
 const theWoolfOfWallStreet = ['🐺', ' ', '🧔', ' ', '💉', ' ', '💰', ' ', '🏙'];
 const caseOfBenjaminButton = ['👴', ' ', '➡', ' ', '👶'];
+const harryPotter = ['🧙', ' ', '🪄', ' ', '🏰', ' ', '🐉', ' ', '🧹', ' ', '⚡'];
 
 
 
@@ -24,7 +25,8 @@ const MovieRiddle = () => {
         theSixthSense,
         theKingsSpeech,
         theWoolfOfWallStreet,
-        caseOfBenjaminButton
+        caseOfBenjaminButton,
+        harryPotter
     ];
 
     let titles = [
@@ -36,7 +38,8 @@ const MovieRiddle = () => {
         "the sixth sense",
         "the king's speech", 
         "the wolf of wall street",
-        "the curious case of benjamin button"
+        "the curious case of benjamin button",
+        "harry potter"
     ];
 
     
