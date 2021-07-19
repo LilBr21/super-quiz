@@ -5,9 +5,9 @@ import Header from '../Header';
 import Score from '../Score';
 import Hint from './Hints/Hint';
 import HintsLeft from './Hints/HintsLeft';
+import EndPage from '../EndPage';
 
 import './answerform.style.css';
-// import '../UI/button.style.css';
 
 const AnswerForm = (props) => {
     const [userAnswer, setUserAnswer] = useState('');
@@ -16,7 +16,9 @@ const AnswerForm = (props) => {
     const [currentAnswer, setCurrentAnswer] = useState(0);
     const [score, setScore] = useState(0);
     const [disable, setDisable] = useState(false);
-    const [howManyHints, setHowManyHints] = useState(3)
+    const [howManyHints, setHowManyHints] = useState(3);
+    const [showAnswerForm, setShowAnswerForm] = useState(true);
+    const [showEndPage, setShowEndPage] = useState(false);
 
     const answerChangeHandler = (event) => {
         setUserAnswer(event.target.value);
@@ -27,8 +29,6 @@ const AnswerForm = (props) => {
     const submitHandler = (event) => {
         event.preventDefault();
         console.log(userAnswer);
-
-        // let correctAnswer = props.answers[currentAnswer];
 
         if (userAnswer === correctAnswer) {
             setAnswerResult('Correct!');
@@ -49,6 +49,11 @@ const AnswerForm = (props) => {
         setUserAnswer('');
         setAnswerResult('');
         setDisable(false);
+
+        if (currentMovie === 8) {
+            setShowAnswerForm(false);
+            setShowEndPage(true);
+        }
     };
 
     const countHintsLeftHandler = (hintsLeft) => {
@@ -56,11 +61,12 @@ const AnswerForm = (props) => {
         setHowManyHints(hintsLeft);
     };
 
-    
+
 
     return (
         <React.Fragment>
             <Header />
+            {showAnswerForm ? <div>
             <div className='game-stats'>
                 <Score score={score}/>
                 <HintsLeft hintsleft={howManyHints}/>
@@ -101,6 +107,8 @@ const AnswerForm = (props) => {
                 </div>
                 </div>
             </form>
+            </div> : null}
+            {showEndPage ? <EndPage finalscore={score}/> : null}
         </React.Fragment>
     )
 };
