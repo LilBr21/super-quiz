@@ -1,6 +1,5 @@
 import React, { useState } from 'react'; 
 
-//import Button from '../UI/Button';
 import Header from '../Header';
 import Score from '../Score';
 import Hint from './Hints/Hint';
@@ -74,12 +73,12 @@ const AnswerForm = (props) => {
             <p className='emojis'>{props.films[currentMovie]}</p>
             <div className='result-container'>
                 <p 
-                    className='answerResult' 
+                    className='answer-result' 
                     value={answerResult}>
                     {answerResult}
                 </p>
             </div>
-            <form className='answerBody'>
+            <form className='answer-body'>
                 <div className='container'>
                 <input 
                     className='answerField' 
@@ -96,7 +95,7 @@ const AnswerForm = (props) => {
                 </button>
                 <div className='bottombuttons'>
                     <button 
-                        className='nextButton' 
+                        className='next-button' 
                         onClick={changeMovieHandler}>
                         Next
                     </button>

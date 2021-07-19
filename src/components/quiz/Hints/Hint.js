@@ -39,9 +39,18 @@ const Hint = (props) => {
     return (
         <div>
         <div className="hint-wrapper">
-            <button className='hint-btn' onClick={showHintHandler} disabled={disable}>Hint?</button>
+            <button 
+                className='hint-btn' 
+                onClick={showHintHandler} 
+                disabled={disable}>
+                Hint?
+            </button>
             { isShown ? <div className="hint-card">
-                <button onClick={hideHintHandler} className='closing-btn'>x</button>
+                <button 
+                    onClick={hideHintHandler} 
+                    className='closing-btn'>
+                    x
+                </button>
                 <p className='hint-text'>{hints[props.hintnumber]}</p>
             </div> : null}
         </div>

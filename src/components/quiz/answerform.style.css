@@ -1,10 +1,7 @@
-.answerBody {
+.answer-body {
     display: flex;
     flex-direction: column; 
     align-items: center;
-    /* display: grid;
-    grid-template-rows: 100px, 100px, 100px;
-    grid-template-columns: 50%, 50%; */
     position: relative;
 }
 
@@ -59,7 +56,7 @@
   background-color: #d6d029;
 }
 
-.answerResult {
+.answer-result {
   color: #FFFFFF;
   font-family: sans-serif;
 }
@@ -81,7 +78,7 @@
   cursor: pointer;
 }
 
-.nextButton {
+.next-button {
   grid-column: 2 / 3;
   grid-row: 1;
   width: 100%;
@@ -92,7 +89,28 @@
   cursor: pointer;
 }
 
-.hint-btn:hover, .nextButton:hover {
+.hint-btn:hover, .next-button:hover {
   background-color: #FFF73C;
   color: #000;
+}
+
+@media (max-width: 400px) {
+  .answer-body {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+
+  .game-stats {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  .answer-result {
+    font-size: 20px;
+  }
+
+  .next-button:hover {
+    background: rgba(255, 247, 60, 0.3);
+    color: #FFFFFF;
+  }
 }
