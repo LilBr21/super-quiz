@@ -27,6 +27,11 @@
   height: 3rem;
 }
 
+.answer-result {
+  color: #FFFFFF;
+  font-family: sans-serif;
+}
+
 .answerField {
   grid-column: 1;
   grid-row: 1;
@@ -56,21 +61,13 @@
   background-color: #d6d029;
 }
 
-.answer-result {
-  color: #FFFFFF;
-  font-family: sans-serif;
-}
-
 .bottombuttons {
   display: grid;
   grid-template-columns: 150px 150px;
   grid-template-rows: 1fr;
 }
 
-.hint-btn, .hint-btn:disabled:hover {
-  grid-column: 1 / 2;
-  grid-row: 1;
-  width: 150px;
+.hint-btn, .next-button, .hint-btn:disabled:hover {
   background: rgba(255, 247, 60, 0.3);
   font-family: Monofett;
   color: #FFFFFF;
@@ -78,15 +75,16 @@
   cursor: pointer;
 }
 
+.hint-btn {
+  grid-column: 1 / 2;
+  grid-row: 1;
+  width: 150px;
+}
+
 .next-button {
   grid-column: 2 / 3;
   grid-row: 1;
   width: 100%;
-  background: rgba(255, 247, 60, 0.3);
-  font-family: Monofett;
-  color: #FFFFFF;
-  font-size: 35px;
-  cursor: pointer;
 }
 
 .hint-btn:hover, .next-button:hover {

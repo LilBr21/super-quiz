@@ -55,7 +55,6 @@ const AnswerForm = (props) => {
     };
 
     const countHintsLeftHandler = (hintsLeft) => {
-        console.log(hintsLeft);
         setHowManyHints(hintsLeft);
     };
 
