@@ -2,7 +2,7 @@
   "name": "super-quiz",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://lilbr21.github.io/super-quiz",
+  "homepage": "https://lilbr21.github.io/super-quiz/public/index.html",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
