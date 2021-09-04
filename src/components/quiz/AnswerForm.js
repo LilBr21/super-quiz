@@ -1,4 +1,6 @@
 import React, { useState } from 'react'; 
+import { useSelector, useDispatch } from 'react-redux';
+import { quizActions } from '../../store/index';
 
 import Header from '../Header';
 import Score from '../Score';
@@ -9,11 +11,15 @@ import EndPage from '../EndPage';
 import './answerform.style.css';
 
 const AnswerForm = (props) => {
+    const dispatch = useDispatch();
+    const score = useSelector(state => state.score);
+    const answerResult = useSelector(state => state.answerResult);
+
     const [userAnswer, setUserAnswer] = useState('');
-    const [answerResult, setAnswerResult] = useState('');
+    // const [answerResult, setAnswerResult] = useState('');
     const [currentMovie, setCurrentMovie] = useState(0);
     const [currentAnswer, setCurrentAnswer] = useState(0);
-    const [score, setScore] = useState(0);
+    // const [score, setScore] = useState(0);
     const [disable, setDisable] = useState(false);
     const [howManyHints, setHowManyHints] = useState(3);
     const [showAnswerForm, setShowAnswerForm] = useState(true);
@@ -29,11 +35,13 @@ const AnswerForm = (props) => {
         event.preventDefault();
 
         if (userAnswer.toLowerCase() === correctAnswer) {
-            setAnswerResult('Correct!');
-            setScore(prev => prev + 1);
+            // setAnswerResult('Correct!');
+            // setScore(prev => prev + 1);
+            dispatch(quizActions.increment())
             setDisable(true);
         } else {
-            setAnswerResult('Try again');
+            // setAnswerResult('Try again');
+            dispatch(quizActions.wrongAnswer());
         }
 
     };
@@ -45,7 +53,8 @@ const AnswerForm = (props) => {
         setCurrentAnswer(prev => (prev + 1) % 10);
 
         setUserAnswer('');
-        setAnswerResult('');
+        // setAnswerResult('');
+        dispatch(quizActions.changeMovie());
         setDisable(false);
 
         if (currentMovie === 9) {
