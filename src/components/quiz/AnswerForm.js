@@ -26,7 +26,7 @@ const AnswerForm = (props) => {
     const answerChangeHandler = (event) => {
         setUserAnswer(event.target.value);
     }
-
+    
     let correctAnswer = props.answers[currentAnswer];
 
     const submitHandler = (event) => {
