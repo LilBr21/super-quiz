@@ -14,16 +14,14 @@ const AnswerForm = (props) => {
     const dispatch = useDispatch();
     const score = useSelector(state => state.score);
     const answerResult = useSelector(state => state.answerResult);
+    const currentMovie = useSelector(state => state.currentMovie);
+    const currentAnswer = useSelector(state => state.currentAnswer);
+    const disable = useSelector(state => state.disable);
+    const showAnswerForm = useSelector(state => state.showAnswerForm);
+    const showEndPage = useSelector(state => state.showEndPage);
 
     const [userAnswer, setUserAnswer] = useState('');
-    // const [answerResult, setAnswerResult] = useState('');
-    const [currentMovie, setCurrentMovie] = useState(0);
-    const [currentAnswer, setCurrentAnswer] = useState(0);
-    // const [score, setScore] = useState(0);
-    const [disable, setDisable] = useState(false);
     const [howManyHints, setHowManyHints] = useState(3);
-    const [showAnswerForm, setShowAnswerForm] = useState(true);
-    const [showEndPage, setShowEndPage] = useState(false);
 
     const answerChangeHandler = (event) => {
         setUserAnswer(event.target.value);
@@ -35,12 +33,8 @@ const AnswerForm = (props) => {
         event.preventDefault();
 
         if (userAnswer.toLowerCase() === correctAnswer) {
-            // setAnswerResult('Correct!');
-            // setScore(prev => prev + 1);
             dispatch(quizActions.increment())
-            setDisable(true);
         } else {
-            // setAnswerResult('Try again');
             dispatch(quizActions.wrongAnswer());
         }
 
@@ -48,18 +42,11 @@ const AnswerForm = (props) => {
 
     const changeMovieHandler = (event) => {
         event.preventDefault();
-        setCurrentMovie(prev => (prev + 1) % 10);
-
-        setCurrentAnswer(prev => (prev + 1) % 10);
-
         setUserAnswer('');
-        // setAnswerResult('');
         dispatch(quizActions.changeMovie());
-        setDisable(false);
 
         if (currentMovie === 9) {
-            setShowAnswerForm(false);
-            setShowEndPage(true);
+            dispatch(quizActions.endQuiz());
         }
     };
 
