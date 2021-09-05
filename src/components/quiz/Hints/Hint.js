@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { quizActions } from '../../../store/index';
 
 
 import './hint.styles.css';
@@ -16,14 +18,16 @@ let hints = [
 ]
 
 const Hint = (props) => {
+    const dispatch = useDispatch();
+    const hintsLeft = useSelector(state => state.hintsLeft);
+
     const [isShown, setIsShown] = useState(false);
-    const [hintsLeft, setHintsLeft] = useState(2);
     const [disable, setDisable] = useState(false);
 
     const showHintHandler = (event) => {
         event.preventDefault();
         setIsShown(true);
-        setHintsLeft(prev => prev - 1);
+        dispatch(quizActions.useHint());
 
         if (hintsLeft === 0) {
             setDisable(true);
