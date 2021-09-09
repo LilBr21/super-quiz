@@ -1,54 +1,34 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 
 import AnswerForm from '../quiz/AnswerForm';
 
-const pulpFiction = ['🍔', ' ', '💉', ' ', '🔫'];
-const titanic = ['💔', ' ', '🚢', ' ', '🌊', ' ', '🥶', ' ', '🚪'];
-const forrestGump = ['🍫', ' ', '💔', ' ', '🏃‍♂️', ' ', '🍤', ' ', '🇻🇳'];
-const theSilenceOfTheLambs = ['🗣', ' ', '❌', ' ', '🐑'];
-const scentOfAWoman = ['🧑‍🦯', ' ', '👃', ' ', '👩', ' ', '💃', ' ', '🕺'];
-const theSixthSense = ['👦', ' ', '👀', ' ', '👻'];
-const theKingsSpeech = ['🗣', ' ', '❌', ' ', '🎙', ' ', '👑'];
-const theWoolfOfWallStreet = ['🐺', ' ', '🧔', ' ', '💉', ' ', '💰', ' ', '🏙'];
-const caseOfBenjaminButton = ['👴', ' ', '➡', ' ', '👶'];
-const harryPotter = ['🧙', ' ', '🪄', ' ', '🏰', ' ', '🐉', ' ', '🧹', ' ', '⚡'];
-
-
-
 const MovieRiddle = () => {
-    let films = [
-        pulpFiction, 
-        titanic, 
-        forrestGump, 
-        theSilenceOfTheLambs, 
-        scentOfAWoman,
-        theSixthSense,
-        theKingsSpeech,
-        theWoolfOfWallStreet,
-        caseOfBenjaminButton,
-        harryPotter
-    ];
+    const [movies, setMovies] = useState([]);
 
-    let titles = [
-        "pulp fiction", 
-        "titanic", 
-        "forrest gump", 
-        "the silence of the lambs",
-        "scent of a woman",
-        "the sixth sense",
-        "the king's speech", 
-        "the wolf of wall street",
-        "the curious case of benjamin button",
-        "harry potter"
-    ];
-
+    useEffect(() => {
+        const fetchMovies = async () => {
+            const response = await fetch('https://movie-quiz-39716-default-rtdb.firebaseio.com/movies.json');
+            const responseData = await response.json();
+            let loadedMovies = [];
+            for (let key of Object.keys(responseData)) {
+                loadedMovies.push({
+                    id: key,
+                    title: responseData[key].title,
+                    emojis: responseData[key].emojis
+                });
+            }
+            setMovies(loadedMovies)
+        };
+        fetchMovies()
+    }, []);
     
     return (
         <div>
+            {movies[1] !== undefined ?
             <AnswerForm 
-                answers={titles} 
-                films={films} 
-            />
+                movies={movies}
+            /> : null }
         </div>
     )
 };

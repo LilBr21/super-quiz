@@ -27,7 +27,7 @@ const AnswerForm = (props) => {
         setUserAnswer(event.target.value);
     }
     
-    let correctAnswer = props.answers[currentAnswer];
+    let correctAnswer = props.movies[currentAnswer].title;
 
     const submitHandler = (event) => {
         event.preventDefault();
@@ -54,8 +54,6 @@ const AnswerForm = (props) => {
         setHowManyHints(hintsLeft);
     };
 
-
-
     return (
         <React.Fragment>
             <Header />
@@ -64,7 +62,7 @@ const AnswerForm = (props) => {
                 <Score score={score}/>
                 <HintsLeft hintsleft={howManyHints}/>
             </div>
-            <p className='emojis'>{props.films[currentMovie]}</p>
+            <p className='emojis'>{props.movies[currentMovie].emojis}</p>
             <div className='result-container'>
                 <p 
                     className='answer-result' 
