@@ -2,6 +2,8 @@
 
 This is a short quiz application made with React. User's goal is to guess the title of the movie represented by the set of emojis. During the game user can read up to 3 hints and score up to 10 points. 
 
+All the needed data is fetched from the Firebase realtime database.
+
 This application is fully responsive.
 
 # Main technologies used:
